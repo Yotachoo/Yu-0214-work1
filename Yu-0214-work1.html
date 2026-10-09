@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Yu-0214-work1 | 我的个人主页</title>
-<meta name="description" content="Yu-0214-work1 —— 我的第一个网页作品,用 HTML 和 CSS 手写而成。">
+<title>Yu-0214-work1 | 于琛博的个人主页</title>
+<meta name="description" content="于琛博的个人主页 —— VLA 与计算机视觉方向。用 HTML 和 CSS 手写而成。">
 <style>
 /* ===================== 主题变量 ===================== */
 :root {
@@ -90,12 +90,10 @@ body {
 .avatar {
   flex: none;
   width: 124px; height: 124px; border-radius: 50%;
-  display: grid; place-items: center;
-  font-size: 3rem; font-weight: 700; color: #fff;
-  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  overflow: hidden; background: var(--surface-2);
   box-shadow: 0 0 0 6px var(--bg), 0 0 0 7px var(--border), var(--shadow-lg);
-  user-select: none;
 }
+.avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .hero-text { flex: 1 1 320px; }
 .hero h1 {
   font-size: clamp(1.9rem, 4.6vw, 2.7rem);
@@ -157,8 +155,24 @@ p + p { margin-top: .9rem; }
   font-size: .85rem; padding: .4rem .9rem; border-radius: 10px;
   background: var(--surface-2); border: 1px solid var(--border);
 }
-.tag b { font-weight: 600; }
-.tag span { color: var(--muted); font-size: .78rem; margin-left: .3rem; }
+.skill-group + .skill-group { margin-top: 1.5rem; }
+.skill-label {
+  display: flex; align-items: center; gap: .65rem;
+  font-size: .78rem; font-weight: 700; letter-spacing: .08em;
+  color: var(--accent); margin-bottom: .7rem;
+}
+.skill-label::after { content: ""; flex: 1; height: 1px; background: var(--border); }
+
+/* 研究方向 */
+.research {
+  display: flex; align-items: center; gap: 1rem;
+  padding: 1.1rem 1.3rem; border-radius: 14px; margin-bottom: 1.7rem;
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--border));
+}
+.research .ico { font-size: 1.6rem; line-height: 1; }
+.research .k { font-size: .76rem; color: var(--muted); letter-spacing: .04em; }
+.research .v { font-size: 1rem; font-weight: 700; }
 
 /* 时间线 */
 .timeline { position: relative; padding-left: 1.6rem; }
@@ -207,7 +221,7 @@ footer .dot { opacity: .45; margin: 0 .5rem; }
   .hero-inner { gap: 1.6rem; justify-content: center; text-align: center; }
   .hero-text { flex-basis: 100%; }
   .chips, .actions { justify-content: center; }
-  .avatar { width: 100px; height: 100px; font-size: 2.4rem; }
+  .avatar { width: 100px; height: 100px; }
   section { padding: 2.5rem 0; }
 }
 </style>
@@ -231,13 +245,16 @@ footer .dot { opacity: .45; margin: 0 .5rem; }
 <!-- ========== 首屏 ========== -->
 <header class="hero">
   <div class="wrap hero-inner">
-    <div class="avatar" aria-hidden="true">Y</div>
+    <picture class="avatar">
+      <source srcset="avatar.webp" type="image/webp">
+      <img src="avatar.png" alt="于琛博的头像" width="400" height="400">
+    </picture>
     <div class="hero-text">
-      <h1>你好,我是 Yu 👋</h1>
-      <p class="tagline">一名正在学习网页开发的学生 &middot; 这是我的第一个网页作品</p>
+      <h1>你好,我是于琛博 👋</h1>
+      <p class="tagline">VLA 与计算机视觉方向 &middot; 这是我手写的第一个网页</p>
       <div class="chips">
         <span class="chip">🎓 在校学生</span>
-        <span class="chip">💻 网页设计课程</span>
+        <span class="chip">🔬 VLA &amp; 计算机视觉</span>
         <span class="chip">🌏 托管于 GitHub Pages</span>
       </div>
       <div class="actions">
@@ -255,17 +272,18 @@ footer .dot { opacity: .45; margin: 0 .5rem; }
     <div class="sec-head"><h2>关于我</h2></div>
     <div class="card">
       <p>
-        你好!很高兴你能打开这个页面。这是我用 <b>HTML</b> 和 <b>CSS</b> 一行一行手写出来的第一个网页,
-        也是我第一次把作品放到互联网上 —— 现在,世界上任何一台能上网的电脑都可以访问它。
+        你好!我是于琛博,目前的研究方向是 <b>VLA(Vision-Language-Action)</b> 与计算机视觉 ——
+        简单说,就是让模型既能“看懂”世界,又能据此做出动作。这是我最近投入精力最多的方向。
       </p>
       <p class="muted">
-        我目前正在学习网页设计的基础知识:从最基础的标签结构开始,
-        慢慢接触排版、配色和响应式布局。这个页面就是我的练习场,
-        我会随着学习的深入不断修改它。
+        日常开发主要用 <b>C++</b> 和 <b>Python</b>,在 <b>Linux</b> 环境下用 <b>Git</b> 管理代码,
+        机器人相关的部分会用到 <b>ROS</b>,同时也在学习<b>强化学习</b>。
+        平时习惯用 Claude Code、Codex 这类 AI 工具辅助开发,效率提升很明显。
       </p>
       <p class="muted">
-        <b>我的目标:</b>先把 HTML 和 CSS 打好基础,再去了解 JavaScript,
-        最终能够独立做出一个完整的、好看的网站。
+        这个页面是我在网页设计课上用 <b>HTML</b> 和 <b>CSS</b> 手写的第一个网页 ——
+        从标签结构到排版配色都自己敲了一遍。代码已托管在 GitHub 上,
+        现在世界上任何一台能上网的电脑都能打开它。
       </p>
     </div>
   </section>
@@ -311,15 +329,44 @@ footer .dot { opacity: .45; margin: 0 .5rem; }
   <section id="skills">
     <div class="sec-head"><h2>技能树</h2></div>
     <div class="card">
-      <p class="muted" style="margin-bottom:1.1rem;font-size:.9rem;">下面这些是我目前正在学习和使用的技能 —— 都还在路上。</p>
-      <div class="tags">
-        <span class="tag"><b>HTML</b><span>入门 · 正在学</span></span>
-        <span class="tag"><b>CSS</b><span>入门 · 正在学</span></span>
-        <span class="tag"><b>VS Code</b><span>日常使用</span></span>
-        <span class="tag"><b>Git &amp; GitHub</b><span>了解 · 会用一点</span></span>
-        <span class="tag"><b>Python</b><span>了解</span></span>
-        <span class="tag"><b>Office 办公软件</b><span>熟练</span></span>
+
+      <div class="research">
+        <span class="ico">🔬</span>
+        <span>
+          <span class="k">研究方向</span><br>
+          <span class="v">VLA(Vision-Language-Action)&nbsp;&middot;&nbsp;计算机视觉</span>
+        </span>
       </div>
+
+      <div class="skill-group">
+        <div class="skill-label">熟练</div>
+        <div class="tags">
+          <span class="tag">C++</span>
+          <span class="tag">Python</span>
+          <span class="tag">Git</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Markdown</span>
+          <span class="tag">HTML</span>
+          <span class="tag">Claude Code / Codex</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">正在学习</div>
+        <div class="tags">
+          <span class="tag">ROS</span>
+          <span class="tag">强化学习(RL)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-label">了解</div>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">CSS</span>
+        </div>
+      </div>
+
     </div>
   </section>
 

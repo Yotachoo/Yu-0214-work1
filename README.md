@@ -1,6 +1,6 @@
 # Yu-0214-work1
 
-我的第一个网页作品 —— 用 HTML + CSS 手写,并托管在 GitHub Pages 上,全世界都可以访问。
+于琛博的个人主页 —— 用 HTML + CSS 手写,并托管在 GitHub Pages 上,全世界都可以访问。
 
 ## 文件说明
 
@@ -8,7 +8,12 @@
 | --- | --- |
 | `index.html` | 网页主文件(GitHub Pages 会自动读取它作为首页) |
 | `Yu-0214-work1.html` | 同内容的副本,按要求以此命名提交 |
+| `avatar.png` | 头像原图(400×400,PNG 兜底格式) |
+| `avatar.webp` | 头像(400×400,同画质下体积约为 PNG 的 1/10,优先加载) |
 | `README.md` | 本说明文件 |
+
+> 头像使用 `<picture>` 元素做格式协商:支持 WebP 的浏览器加载 `avatar.webp`,
+> 其余回退到 `avatar.png`,两者视觉一致。
 
 ## 在线访问
 
